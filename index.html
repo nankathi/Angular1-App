@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html >  
+    <head>
+        <meta charset="UTF-8">
+        <title>Acme Product Management</title>
+
+        <!--Style sheets-->
+        <link rel="stylesheet" href="css/bootstrap.css">
+
+        <!--Library scripts-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        
+        <!--Application Script-->
+        <script src="app/app.js"></script>
+
+        <!--Product controller scripts-->
+        <script src="app/products/productListCtrl.js"></script>
+        
+        <!--<script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>-->
+
+    </head>
+    <body ng-app="productManagement">
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="font-size:large">
+                Product List
+            </div>
+            <div class="panel-body">
+        <table class="table table-stripped" ng-controller="ProductListCtrl as vm">
+            <thead>
+                <tr>
+                    <td>
+                        <button class="btn btn-success" type="button" ng-click="vm.toggleImage()">
+                            {{vm.showImage ? "Hide" : "Show"}} Image
+                    </td>
+                    <td>Product</td>
+                    <td>Code</td>
+                    <td>Available</td>
+                    <td>Price</td>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr ng-repeat="product in vm.products">
+                    <td>
+                        <img ng-if="vm.showImage"
+                             src="{{product.imageUrl}}""
+                             style="width:50px;margin:2px"
+                             title="{{product.productName}}"
+                    </td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.productCode}}</td>
+                    <td>{{product.releaseDate}}</td>
+                    <td>{{product.price | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        </div>
+    </body>
+</html>
