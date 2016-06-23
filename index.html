@@ -28,12 +28,13 @@
         
         <!--Product controller scripts-->
         <script src="app/products/productListCtrl.js"></script>
+        <script src="app/products/productDetailCtrl.js"></script>
         
     </head>
     <body ng-app="productManagement">
          <nav class="navbar navbar-inverse">
             <div class="container">
-                   <a ui-sref="home" class="navbar-brand">SORA Product Management</a>
+                   <a ui-sref="home" class="navbar-brand">SORA INC</a>
                    <div class="navbar-header">
                        <button type="button" class="navbar-toggle"
                                 data-toggle="collapse"
@@ -46,7 +47,7 @@
                    </div>
                    <div class="navbar-collapse collapse">
                        <ul class="nav navbar-nav">
-                           <li><a ui-sref="productList">Product List</a></li>
+                           <li><a ui-sref="productList"><i class="glyphicon glyphicon-home"></i> Product List</a></li>
                            <li><a ui-sref="productEdit({productId:0})"><i class="glyphicon glyphicon-plus"></i>
                             Add Product</a></li>
                        </ul>

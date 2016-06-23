@@ -1,4 +1,4 @@
- <div><h1 class="companyTitle">SORA PRODUCT MANAGEMENT</h1><hr></div>
+ <div><h4>Browse through all the Product's available</h1><hr></div>
         <div class="container">        
         <div class="panel panel-primary">
             <div class="panel-heading" style="font-size:large">
@@ -26,10 +26,17 @@
                              style="width:50px;margin:2px"
                              title="{{product.productName}}"
                     </td>
-                    <td>{{product.productName}}</td>
+                    <td>
+                        <a ui-sref="productDetail({productId: product.productId})">
+                            {{product.productName}}
+                        </a>
+                        </td>
                     <td>{{product.productCode}}</td>
                     <td>{{product.releaseDate}}</td>
                     <td>{{product.price | currency}}</td>
+                    <td>
+                        <a ui-sref="productEdit({productId: product.productId})" class="btn btn-primary">Edit</a>
+                    </td>
                 </tr>
             </tbody>
         </table>

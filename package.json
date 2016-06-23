@@ -1,12 +1,11 @@
 {
   "name": "product-management",
-    "version": "1.0.0",
-    "author": "Raj Ankathi",
-    "description": "Package for the Acme Product Management sample application",
-    "scripts": {
+  "version": "1.0.0",
+  "author": "Raj Ankathi",
+  "description": "Package for the Acme Product Management sample application",
+  "scripts": {
     "dev": "lite-server"
   },
-  
   "devDependencies": {
     "lite-server": "^2.2.0"
   },
