@@ -85,11 +85,14 @@
                 $httpBackend.whenGET(editingRegex).respond(function(method,url,data){
                     //respond method can take a fucntion and returns desired out
                 //split the url putting each part of the url into an array
+                var product = {"productID":  0 };
                 var parameters =url.split('/');
+                var length = parameters.length;
                 //get the id parameter which is the last in the array
-                var id = parameter[length -1];
+                var id = parameters[length -1];
+
                 if(id >0){
-                    for(var i=0; i< products; i++){
+                    for(var i=0; i< products.length; i++){
                         if(products[i].productId == id){
                             product = products[i];
                             break;
@@ -102,7 +105,7 @@
 
                 //Save functionality i.e a post request
                 //processing the post calls to fake out adding and editing products in the list
-                $httpBackend.whenPOST(productUrl).respond(function(){
+                $httpBackend.whenPOST(productUrl).respond(function(method,url,data){
                     //deserialize the passed in JSON string(data) and return the 
                     //result in the product variable
                     var product = angular.fromJson(data);
@@ -114,7 +117,7 @@
                         //new product doesnt have assigned id's so we assign one and push to the 
                         //array of products 
                         product.productId = products[products.length -1].productId + 1;
-                        product.push(product);
+                        products.push(product);
                     }
                     else{
                         //Updated product

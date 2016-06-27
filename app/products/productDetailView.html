@@ -21,11 +21,15 @@
                 </div>
                 <div class="row">
                      <div class="col-md-2">Cost:</div>
+                    <div class="col-md-6">{{vm.product.cost | currency}}</div>
+                </div>
+                 <div class="row">
+                     <div class="col-md-2">Price:</div>
                     <div class="col-md-6">{{vm.product.price | currency}}</div>
                 </div>
                 <div class="row">
                      <div class="col-md-2">Margin:</div>
-                    <div class="col-md-6">{{vm.product.marginPercent | number:0 }}</div>
+                    <div class="col-md-6">{{vm.marginPercent | number:0 }}%</div>
                 </div>
                 <div class="row">
                      <div class="col-md-2">Tags:</div>
@@ -43,7 +47,7 @@
         <a ui-sref="productList" style="width:80px;" class="btn btn-default">
             <i class="glyphicon glyphicon-cevron-left"></i>Back
         </a>
-        <a ui-sref="productEdit({productId: vm.product.productId})" 
+        <a ui-sref="productEdit.info({productId: vm.product.productId})" 
         class="btn btn-primary"
         style="width:80px;margin-left:10px;">
         Edit

@@ -32,10 +32,10 @@
                         </a>
                         </td>
                     <td>{{product.productCode}}</td>
-                    <td>{{product.releaseDate}}</td>
-                    <td>{{product.price | currency}}</td>
+                    <td>{{product.releaseDate | date}}</td>
+                    <td>{{product.cost | currency}}</td>
                     <td>
-                        <a ui-sref="productEdit({productId: product.productId})" class="btn btn-primary">Edit</a>
+                        <a ui-sref="productEdit.info({productId: product.productId})" class="btn btn-primary">Edit</a>
                     </td>
                 </tr>
             </tbody>
