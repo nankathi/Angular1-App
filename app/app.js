@@ -81,10 +81,35 @@
                             productResource: "productResource",
 
                             products: function(productResource){
-                                return productResource.query().$promise;
+                                return productResource.query(function(response){
+                                    //no code need for the success
+                                },
+                                //failure function. it checks the status on the response.
+                                //If the status is 404 NotFound it displays an alertbox
+                                function(response){
+                                    if(response.status == 404){
+                                        alert("Error accessing resource: " +
+                                        response.config.method+ "" + response.config.url);
+                                    }else{
+                                        alert(response.statuText);
+                                    }
+                                }).$promise;
                             }
                         }
                     })
                 }]
-    );
+    ); //End of app.config 1
+
+    app.config(function($provide){
+        $provide.decorator("$exceptionHandler",
+                            ["$delegate",
+                            function($delegate){
+                                return function (exception, cause) {
+                                    exception.message = "Please contact the Help Desk! \n Message:" +
+                                                                            exception.message;
+                                    $delegate(exception, cause);
+                                    alert(exception.message);
+                                };
+                            }])
+    })
 }());
